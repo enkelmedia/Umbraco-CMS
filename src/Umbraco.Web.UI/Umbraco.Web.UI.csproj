@@ -430,7 +430,7 @@
     <Content Include="Views\Content.cshtml" />
     <Content Include="Views\office.cshtml" />
     <Content Include="Views\offices.cshtml" />
-    <Content Include="Views\_Layout.cshtml" />
+    <Content Include="Views\layout.cshtml" />
     <None Include="Web.Debug.config.transformed" />
     <None Include="web.Template.Debug.config">
       <DependentUpon>Web.Template.config</DependentUpon>

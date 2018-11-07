@@ -79,7 +79,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Umbraco\Translation\" />
     <Folder Include="Views\MacroPartials\" />
   </ItemGroup>
@@ -130,6 +129,18 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="App_Data\Models\CContent.generated.cs" />
+    <Compile Include="App_Data\Models\Content.generated.cs" />
+    <Compile Include="App_Data\Models\File.generated.cs" />
+    <Compile Include="App_Data\Models\Folder.generated.cs" />
+    <Compile Include="App_Data\Models\Image.generated.cs" />
+    <Compile Include="App_Data\Models\Member.generated.cs" />
+    <Compile Include="App_Data\Models\Office.generated.cs" />
+    <Compile Include="App_Data\Models\Offices.generated.cs" />
+    <Compile Include="App_Data\Models\Startpage.generated.cs" />
+    <Compile Include="App_Plugins\Obviuse\ComponentInit.cs" />
+    <Compile Include="App_Plugins\Obviuse\Controllers\Api\MeetingsApiController.cs" />
+    <Compile Include="App_Plugins\Obviuse\StartpageController.cs" />
     <Compile Include="Config\splashes\NoNodes.aspx.cs">
       <DependentUpon>noNodes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -201,6 +212,8 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
+    <Content Include="App_Plugins\Obviuse\ContentApps\analytics.png" />
+    <Content Include="App_Plugins\Obviuse\ContentApps\view.html" />
     <Content Include="Config\grid.editors.config.js" />
     <Content Include="Config\Lang\cs-CZ.user.xml" />
     <Content Include="Config\Lang\da-DK.user.xml" />
@@ -220,6 +233,7 @@
     <Content Include="Config\Lang\ru-RU.user.xml" />
     <Content Include="Config\Lang\sv-SE.user.xml" />
     <Content Include="Config\Lang\zh-CN.user.xml" />
+    <Content Include="css\Site.css" />
     <Content Include="Umbraco\Config\Lang\cs.xml" />
     <Content Include="Umbraco\ClientRedirect.aspx" />
     <Content Include="Umbraco\Config\Lang\tr.xml" />
@@ -239,6 +253,9 @@
     <Content Include="Umbraco\Dashboard\UserControlProxy.aspx" />
     <Content Include="Umbraco\Install\Views\Web.config" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
+    <Content Include="App_Data\Models\all.dll.path" />
+    <Content Include="App_Data\Models\models.hash" />
+    <Content Include="App_Plugins\Obviuse\package.manifest" />
     <None Include="Config\404handlers.Release.config">
       <DependentUpon>404handlers.config</DependentUpon>
     </None>
@@ -408,6 +425,12 @@
     <Content Include="Views\Partials\Grid\Bootstrap2-Fluid.cshtml" />
     <Content Include="Umbraco\Views\Preview\Index.cshtml" />
     <Content Include="Umbraco\Views\web.config" />
+    <Content Include="Views\Startpage.cshtml" />
+    <Content Include="Views\Partials\ContactForm.cshtml" />
+    <Content Include="Views\Content.cshtml" />
+    <Content Include="Views\office.cshtml" />
+    <Content Include="Views\offices.cshtml" />
+    <Content Include="Views\_Layout.cshtml" />
     <None Include="Web.Debug.config.transformed" />
     <None Include="web.Template.Debug.config">
       <DependentUpon>Web.Template.config</DependentUpon>

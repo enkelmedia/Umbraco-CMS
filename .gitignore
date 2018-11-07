@@ -72,10 +72,10 @@ src/Umbraco.Tests/config/trees.config
 src/Umbraco.Web.UI/web.config
 src/Umbraco.Web.UI/[Cc]onfig/ClientDependency.config
 src/Umbraco.Tests/config/404handlers.config
-src/Umbraco.Web.UI/[Vv]iews/*.cshtml
+
 src/Umbraco.Web.UI/[Vv]iews/*.vbhtml
 src/Umbraco.Tests/[Cc]onfig/umbracoSettings.config
-src/Umbraco.Web.UI/[Vv]iews/*
+
 src/packages/
 src/packages/repositories.config
 
@@ -108,7 +108,7 @@ src/Umbraco.Web.UI/[Uu]ser[Cc]ontrols/
 
 src/Umbraco.Web.UI.Client/src/[Ll]ess/*.css
 
-src/Umbraco.Web.UI/App_Plugins/*
+
 src/*.psess
 src/*.vspx
 

@@ -1,0 +1,39 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Office>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "layout.cshtml";
+}
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<h1>@Model.Name</h1>
+<p>@Model.StreetAddress</p>
+<p>@Model.EMail</p>
+<p>@Model.Phone</p>
+<div>
+    @Model.Description
+</div>
+
+<hr/>
+<h2>Språk</h2>
+<ul>
+    @foreach(var(culture, infos) in Model.Cultures)
+    {
+        <li>
+            <a href="@Model.GetUrl(culture)">
+                @culture
+                @infos.Culture
+                @infos.Date
+                @infos.UrlSegment
+                @infos.Name
+                @Model.Value("Name", culture)
+            </a>
+        </li>
+    }
+</ul>
+
+</body>
+</html>
+

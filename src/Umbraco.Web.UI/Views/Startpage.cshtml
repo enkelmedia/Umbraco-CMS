@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.UI.App_Plugins.Obviuse.StartPageViewModel>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	Layout = "layout.cshtml";
+}
+
+<article>
+    <h1>Hello - Prop: @Model.CustomProperty</h1>
+
+    @Model.Content.Value("Name")
+
+    @Html.Action("RenderForm","ContactFormSurface")
+
+    @Html.GetGridHtml(Model.Content,"grid")
+    @Umbraco.GetDictionaryValue("Test/Test")
+    
+</article>
+

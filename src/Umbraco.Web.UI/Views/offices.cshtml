@@ -1,0 +1,25 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Offices>
+@{
+	Layout = "layout.cshtml";
+}
+<article>
+<h1>@Model.Name</h1>
+
+@foreach (var item in Model.Children<Office>())
+{
+    <div class="office">
+        <div>
+            <h2>@item.Name</h2>
+            <p>@item.StreetAddress</p>
+            <p>@item.Phone</p>
+            <p>@item.EMail</p>
+        </div>
+        <div>
+            @item.Description
+        </div>
+    </div>
+
+}
+
+
+</article>

@@ -1,0 +1,46 @@
+﻿@using System.Globalization
+@using System.Threading
+@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/site.css">
+    <title>@Model.Name</title>
+</head>
+<body>
+<header>
+    <nav class="main">
+        <ul>
+            <li><a href="@Model.AncestorsOrSelf(1).First().Url">Start</a></li>
+            @foreach (var item in Model.AncestorsOrSelf(1).First().Children)
+            {
+                <li class="@(Model.Id == item.Id ? "current" : "")"><a href="@item.Url">@item.Name</a></li>
+            }
+        </ul>
+    </nav>
+    <nav class="lang">
+        <ul>
+            @{
+                var myHelper = (UmbracoHelper)DependencyResolver.Current.GetService(typeof(UmbracoHelper));
+            }
+            @foreach (var (culture, infos) in Model.Cultures)
+            {
+                <li class="@(Thread.CurrentThread.CurrentCulture.Name.ToLowerInvariant() == culture ? "current" : "")">
+                    <a href="@Model.GetUrl(culture)">
+                        @myHelper.GetDictionaryValue("Settings/Languages/" + culture)
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+</header>
+<main>
+    @RenderBody()
+</main>
+<footer>
+Obviuse
+</footer>
+</body>
+</html>
+

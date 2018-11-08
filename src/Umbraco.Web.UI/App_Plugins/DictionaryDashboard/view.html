@@ -1,0 +1,70 @@
+﻿<div ng-controller="Obviuse.DictionaryDashboardController as vm" class="dictionary-dashboard-wrapper">
+	<umb-load-indicator ng-if="vm.loading">
+	</umb-load-indicator>
+	<section>
+		<div ng-show="!vm.loading" class="dictionary-table-wrapper" >
+			<table class="table table-striped table-condensed table-dictionaries">
+				<tr class="header">
+					<th></th>
+					<th>
+						<div>Key</div>
+					</th>
+					<th ng-repeat="lang in vm.languages" class="lang-header" ng-show="!lang.hidden" ng-click="vm.hideLanguage(lang)">
+						<div title="Hide language">
+							{{lang.name}}
+							<i class="fa fa-minus-circle"></i>
+						</div>
+					</th>
+					<th>
+						<div>
+							<div style="height: 1px; width: 90px;"></div>
+							<div class="pull-right ng-scope" style="position: relative; position: relative;" ng-show="vm.state.showLanguageMenu">
+								<!-- options button -->
+								<button class="btn btn-small btn-success" href="#" prevent-default="" data-toggle="dropdown">
+									Add language <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu umb-actions">
+									<li class="action" ng-repeat="lang in vm.languages" ng-show="lang.hidden">
+										<a ng-click="vm.showLanguage(lang)">{{lang.name}}</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</th>
+				</tr>
+				<tr class="filters">
+					<th>
+						<input type="checkbox" no-dirty-check="" value="true" ng-model="vm.search.onlyShowMatches" ng-click="vm.showMatchesToggle()" title="Show only items with matching translations" />
+					</th>
+					<th><input type="text" no-dirty-check="" ng-model="vm.search.key" placeholder="Type to filter" ng-change="vm.setFilterKeyText()" /></th>
+					<th ng-repeat="lang in vm.languages" ng-show="!lang.hidden">
+						<input type="text" no-dirty-check="" ng-model="lang.filter" ng-change="vm.languageFilterChanged(lang)" placeholder="Type to filter" />
+					</th>
+					<th>
+						<button class="btn btn-small btn-info" ng-click="vm.clearAllFilters()" ng-show="vm.search.hasFilters" title="Clear all filters">
+							<i class="fa fa-times-circle"></i>
+						</button>
+					</th>
+				</tr>
+				<tr ng-repeat="row in vm.dictionaries" ng-class="{editmode : row.editMode, isVisible : row.visible, odd : row.isOdd}" ng-show="row.visible">
+					<td ng-click="vm.enterEditMode(row,row.index)">
+						<span ng-class="row.isMatch ? 'fa fa-ban' : 'fa fa-check-square-o'"></span>
+					</td>
+					<td ng-click="vm.enterEditMode(row,row.index)">
+						{{row.key}}
+					</td>
+					<td ng-repeat="lang in vm.languages" ng-show="!lang.hidden">
+						<span ng-show="!row.editMode" ng-click="vm.enterEditMode(row,row.index)">{{lang.dictionaries[row.index].value}}</span>
+						<textarea ng-show="row.editMode" no-dirty-check="" ng-model="vm.tempEditCollection[$index].value" ng-keypress="vm.keypress($event,row)"></textarea>
+						<!--<input ng-show="row.editMode" type="text" ng-model="vm.tempEditCollection[$index].value" ng-keypress="vm.keypress($event,row)" />-->
+					</td>
+					<td>
+						<button class="btn btn-small" ng-show="!row.editMode" ng-click="vm.enterEditMode(row, row.index)"><i class="fa fa-edit"></i></button>
+						<button class="btn btn-small btn-success" ng-show="row.editMode" ng-click="vm.save(row, row.index)" ng-show="row.editMode"><i class="fa fa-check-circle"></i></button>
+						<button class="btn btn-small btn-danger" ng-show="row.editMode" ng-click="vm.cancelEdit(row)"><i class="fa fa-ban"></i></button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</section>
+</div>

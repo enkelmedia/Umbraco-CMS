@@ -12,8 +12,8 @@
 <header>
     <nav class="main">
         <ul>
-            <li><a href="@Model.AncestorsOrSelf(1).First().Url">Start</a></li>
-            @foreach (var item in Model.AncestorsOrSelf(1).First().Children)
+            <li><a href="@Model.Root().Url">Start</a></li>
+            @foreach (var item in Model.Root().Children)
             {
                 <li class="@(Model.Id == item.Id ? "current" : "")"><a href="@item.Url">@item.Name</a></li>
             }

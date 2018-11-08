@@ -138,6 +138,8 @@
     <Compile Include="App_Data\Models\Office.generated.cs" />
     <Compile Include="App_Data\Models\Offices.generated.cs" />
     <Compile Include="App_Data\Models\Startpage.generated.cs" />
+    <Compile Include="App_Plugins\DictionaryDashboard\CamelCaseController.cs" />
+    <Compile Include="App_Plugins\DictionaryDashboard\DictionaryDashboardController.cs" />
     <Compile Include="App_Plugins\Obviuse\ComponentInit.cs" />
     <Compile Include="App_Plugins\Obviuse\Controllers\Api\MeetingsApiController.cs" />
     <Compile Include="App_Plugins\Obviuse\StartpageController.cs" />
@@ -209,6 +211,9 @@
     <Compile Include="Umbraco\Masterpages\UmbracoPage.master.designer.cs">
       <DependentUpon>umbracoPage.Master</DependentUpon>
     </Compile>
+    <Content Include="App_Plugins\DictionaryDashboard\DictionaryDashboard.controller.js" />
+    <Content Include="App_Plugins\DictionaryDashboard\style.css" />
+    <Content Include="App_Plugins\DictionaryDashboard\view.html" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
@@ -256,6 +261,7 @@
     <Content Include="App_Data\Models\all.dll.path" />
     <Content Include="App_Data\Models\models.hash" />
     <Content Include="App_Plugins\Obviuse\package.manifest" />
+    <Content Include="App_Plugins\DictionaryDashboard\package.manifest" />
     <None Include="Config\404handlers.Release.config">
       <DependentUpon>404handlers.config</DependentUpon>
     </None>

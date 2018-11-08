@@ -1,0 +1,11 @@
+{
+	"javascript": [
+		// Controllers
+		"/app_plugins/DictionaryDashboard/DictionaryDashboard.controller.js"
+
+
+	],
+	"css": [
+		"/app_plugins/DictionaryDashboard/style.css"
+	]
+}

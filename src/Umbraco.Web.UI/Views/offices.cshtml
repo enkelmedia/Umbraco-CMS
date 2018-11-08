@@ -9,12 +9,21 @@
 {
     <div class="office">
         <div>
+            @if(item.Photo != null)
+            { 
+                <img src="@Url.GetCropUrl(item.Photo, "small")"/>
+            }
+
+        </div>
+        <div>
             <h2>@item.Name</h2>
             <p>@item.StreetAddress</p>
             <p>@item.Phone</p>
             <p>@item.EMail</p>
         </div>
         <div>
+            @item.Value(x => x.Description, "en-us")
+            <hr/>
             @item.Description
         </div>
     </div>

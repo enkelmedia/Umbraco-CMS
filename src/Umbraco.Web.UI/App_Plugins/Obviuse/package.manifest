@@ -6,6 +6,7 @@
             "weight": 0, // optional, default is 0, control sorting
             "icon": "icon-pie-chart", // required - the icon to use
             "view": "~/App_Plugins/Obviuse/ContentApps/view.html" // required
+            
         }
     ],
     "javascript": [
@@ -15,6 +16,15 @@
         "~/App_Plugins/Obviuse/Obviuse.css"
     ]
 }
+
+
+/*
+ * "show": [
+                "+content/startPage",
+                "+content/contentPage"
+            ]
+ */
+
 
 
 // weigt use values between -99 and +99 to appear between the existing Content (-100) and Info (100) apps

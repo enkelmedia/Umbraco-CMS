@@ -53,7 +53,7 @@ App_Data/TEMP/*
 
 src/Umbraco.Web.UI/[Cc]ss/*
 src/Umbraco.Web.UI/App_Code/*
-src/Umbraco.Web.UI/App_Data/*
+
 src/Umbraco.Tests/App_Data/*
 src/Umbraco.Web.UI/[Mm]edia/*
 src/Umbraco.Web.UI/[Mm]aster[Pp]ages/*
@@ -156,3 +156,12 @@ build/temp/
 
 
 # eof
+src/Umbraco.Web.UI/App_Data/cache/
+src/Umbraco.Web.UI/App_Data/NuCache.Content.db
+src/Umbraco.Web.UI/App_Data/NuCache.Media.tlog
+src/Umbraco.Web.UI/App_Data/NuCache.Media.db
+src/Umbraco.Web.UI/App_Data/NuCache.Content.tlog
+src/Umbraco.Web.UI/App_Data/Umbraco.sdf
+src/Umbraco.Web.UI/App_Data/Logs/
+src/Umbraco.Web.UI/App_Data/TEMP/
+src/Umbraco.Web.UI/App_Data/packages/

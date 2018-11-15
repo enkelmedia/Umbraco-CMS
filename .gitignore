@@ -51,7 +51,7 @@ App_Data/TEMP/*
 [Uu]mbraco/[Pp]resentation/[Ff]onts/*
 [Uu]mbraco/[Pp]resentation/[Cc]ss/*
 
-src/Umbraco.Web.UI/[Cc]ss/*
+
 src/Umbraco.Web.UI/App_Code/*
 
 src/Umbraco.Tests/App_Data/*

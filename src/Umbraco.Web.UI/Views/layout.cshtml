@@ -1,19 +1,23 @@
 ﻿@using System.Globalization
 @using System.Threading
+@using Umbraco.Web.UI.App_Plugins.Obviuse
 @inherits Umbraco.Web.Mvc.UmbracoViewPage
 @{
+    var umbHelper = (UmbracoHelper)DependencyResolver.Current.GetService(typeof(UmbracoHelper));
 }
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="/css/site.css">
-    <title>@Model.Name</title>
+    <title>@Model.Value("pageTitle", defaultValue: Model.Name, fallback:Fallback.ToDefaultValue) - @umbHelper.GetStartpage().SiteName</title>
+    <script type="text/javascript" src="https://use.typekit.com/tml4wzg.js"></script>
+    <script type="text/javascript">try { Typekit.load(); } catch (e) { }</script>
 </head>
 <body>
 <header>
     <nav class="main">
         <ul>
             <li><a href="@Model.Root().Url">Start</a></li>
-            @foreach (var item in Model.Root().Children)
+            @foreach (var item in Model.Root().Children().Where(x=>x.IsVisible()))
             {
                 <li class="@(Model.Id == item.Id ? "current" : "")"><a href="@item.Url">@item.Name</a></li>
             }
@@ -21,18 +25,17 @@
     </nav>
     <nav class="lang">
         <ul>
-            @{
-                var myHelper = (UmbracoHelper)DependencyResolver.Current.GetService(typeof(UmbracoHelper));
-            }
+            
             @foreach (var (culture, infos) in Model.Cultures)
             {
                 <li class="@(Thread.CurrentThread.CurrentCulture.Name.ToLowerInvariant() == culture ? "current" : "")">
                     <a href="@Model.GetUrl(culture)">
-                        @myHelper.GetDictionaryValue("Settings/Languages/" + culture)
+                        @umbHelper.GetDictionaryValue("Settings/Languages/" + culture)
                     </a>
                 </li>
             }
         </ul>
+
     </nav>
 </header>
 <main>

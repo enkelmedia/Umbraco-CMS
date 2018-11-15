@@ -134,6 +134,8 @@
     <Compile Include="App_Data\Models\File.generated.cs" />
     <Compile Include="App_Data\Models\Folder.generated.cs" />
     <Compile Include="App_Data\Models\Image.generated.cs" />
+    <Compile Include="App_Data\Models\Lead.generated.cs" />
+    <Compile Include="App_Data\Models\Leads.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
     <Compile Include="App_Data\Models\Office.generated.cs" />
     <Compile Include="App_Data\Models\Offices.generated.cs" />
@@ -142,6 +144,7 @@
     <Compile Include="App_Plugins\DictionaryDashboard\DictionaryDashboardController.cs" />
     <Compile Include="App_Plugins\Obviuse\ComponentInit.cs" />
     <Compile Include="App_Plugins\Obviuse\Controllers\Api\MeetingsApiController.cs" />
+    <Compile Include="App_Plugins\Obviuse\PublishedContentFallback.cs" />
     <Compile Include="App_Plugins\Obviuse\StartpageController.cs" />
     <Compile Include="Config\splashes\NoNodes.aspx.cs">
       <DependentUpon>noNodes.aspx</DependentUpon>
@@ -219,6 +222,7 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
     <Content Include="App_Plugins\Obviuse\ContentApps\analytics.png" />
     <Content Include="App_Plugins\Obviuse\ContentApps\view.html" />
+    <Content Include="App_Plugins\Obviuse\Obviuse.css" />
     <Content Include="Config\grid.editors.config.js" />
     <Content Include="Config\Lang\cs-CZ.user.xml" />
     <Content Include="Config\Lang\da-DK.user.xml" />
@@ -238,6 +242,7 @@
     <Content Include="Config\Lang\ru-RU.user.xml" />
     <Content Include="Config\Lang\sv-SE.user.xml" />
     <Content Include="Config\Lang\zh-CN.user.xml" />
+    <Content Include="css\background.png" />
     <Content Include="css\Site.css" />
     <Content Include="Umbraco\Config\Lang\cs.xml" />
     <Content Include="Umbraco\ClientRedirect.aspx" />
@@ -437,6 +442,8 @@
     <Content Include="Views\office.cshtml" />
     <Content Include="Views\offices.cshtml" />
     <Content Include="Views\layout.cshtml" />
+    <Content Include="Views\Lead.cshtml" />
+    <Content Include="Views\Leads.cshtml" />
     <None Include="Web.Debug.config.transformed" />
     <None Include="web.Template.Debug.config">
       <DependentUpon>Web.Template.config</DependentUpon>

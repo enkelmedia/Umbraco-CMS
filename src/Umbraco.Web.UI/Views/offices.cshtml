@@ -3,30 +3,47 @@
 	Layout = "layout.cshtml";
 }
 <article>
-<h1>@Model.Name !</h1>
+    <h1>@Model.Name</h1>
 
-@foreach (var item in Model.Children<Office>())
-{
-    <div class="office">
-        <div>
-            @if(item.Photo != null)
-            { 
-                <img src="@Url.GetCropUrl(item.Photo, "small")"/>
-            }
+    @foreach (var item in Model.Children<Office>())
+    {
+        <div class="office">
+            <div>
+                @if (item.Photo != null)
+                {
+                    <img src="@Url.GetCropUrl(item.Photo, "small")" />
+                }
+
+            </div>
+            <div>
+                <h2>@item.Name</h2>
+                <p>@item.StreetAddress</p>
+                <p>@item.Phone</p>
+                <p>@item.EMail</p>
+            </div>
+
+            <div>
+                @*@item.Value(x => x.Description, "en-us")
+                <hr />*@
+                @item.Description
+            </div>
 
         </div>
-        <div>
-            <h2>@item.Name</h2>
-            <p>@item.StreetAddress</p>
-            <p>@item.Phone</p>
-            <p>@item.EMail</p>
-        </div>
-        <div>
-            @item.Value(x => x.Description, "en-us")
-            <hr/>
-            @item.Description
-        </div>
-    </div>
-}
+    }
+
+
+
+    @*@Model.Value("description")
+
+    @Model.Value("description", "en-us");
+
+    @Model.Value(x => x.Description)
+
+    @(Model.Value<DateTime>("publishDate").ToString("f"))
+
+    @Model.Value(x => x.Description, "en-us")
+
+    @Model.Value(x => x.Description, fallback: Fallback.ToAncestors)*@
+
 
 </article>

@@ -1,18 +1,29 @@
 ﻿@inherits UmbracoViewPage<Umbraco.Web.UI.App_Plugins.Obviuse.StartPageViewModel>
 @using ContentModels = Umbraco.Web.PublishedModels;
 @{
-	Layout = "layout.cshtml";
+    Layout = "layout.cshtml";
 }
 
 <article>
-    <h1>Hello - Prop: @Model.CustomProperty</h1>
 
-    @Model.Content.Value("Name")
+    @Html.GetGridHtml(Model.Content, "grid")
 
-    @Html.Action("RenderForm","ContactFormSurface")
+    <hr />
+    <h2>Upcomming meetings</h2>
+    <ul>
+        @foreach (var meeting in Model.Meetings)
+        {
+            <li>
+                <strong>@meeting.Description</strong> @meeting.DateTime.ToString("yyyy-MM-dd HH:mm")
+            </li>
+        }
+    </ul>
 
-    @Html.GetGridHtml(Model.Content,"grid")
-    @Umbraco.GetDictionaryValue("Test/Test")
+    <hr />
+
+    @Html.Action("RenderForm", "ContactFormSurface")
 
 </article>
 
+
+@*@Umbraco.GetDictionaryValue("Test/Test")*@

@@ -22,6 +22,7 @@ export default class NestedTab2Element extends UmbElementMixin(LitElement)
 	constructor() {
 		super();
 		this.validation.setDataPath('$.form.tab2');
+		this.validation.autoReport();
 
 		this.consumeContext(UMB_VALIDATION_CONTEXT, (validationContext) => {
 			console.log('ctx',validationContext);
@@ -41,6 +42,7 @@ export default class NestedTab2Element extends UmbElementMixin(LitElement)
 
 	async #checkTabValidity(){
 		const isValidationContextValid = await this.validation!.validate().then(()=>true,()=>false);
+		this.validation.report();
 	}
 
 	override render() {

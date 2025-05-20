@@ -18,4 +18,25 @@ const dashboard: ManifestDashboard = {
 	],
 };
 
-export const manifests = [dashboard];
+const dashboardNested : ManifestDashboard = {
+	type: 'dashboard',
+	alias: 'Demo.Dashboard.Nested',
+	name: 'Demo Dashboard Validation Context Nested',
+	weight: 1000,
+	element: () => import('./validation-context-nested-dashboard.js'),
+	meta: {
+		label: 'Validation Context Demo (Nested)',
+		pathname: 'demo-nested',
+	},
+	conditions: [
+		{
+			alias: 'Umb.Condition.SectionAlias',
+			match: 'Umb.Section.Content',
+		},
+	],
+};
+
+export const manifests = [
+	dashboard,
+	dashboardNested
+];

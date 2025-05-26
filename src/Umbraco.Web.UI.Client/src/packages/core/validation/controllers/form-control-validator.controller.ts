@@ -48,8 +48,10 @@ export class UmbFormControlValidator extends UmbControllerBase implements UmbVal
 			if (newVal) {
 				this.#context?.messages.removeMessagesByTypeAndPath('client', this.#dataPath);
 			} else {
+				console.log('err',this.#control.validationMessage);
 				// We only want to add the message if it is not already there. (this could be a custom or server message that got binded to the control, we do not want that double.)
 				if (!this.#context?.messages.getHasMessageOfPathAndBody(this.#dataPath, this.#control.validationMessage)) {
+					console.log('setting error');
 					this.#context?.messages.addMessage('client', this.#dataPath, this.#control.validationMessage);
 				}
 			}
@@ -61,6 +63,7 @@ export class UmbFormControlValidator extends UmbControllerBase implements UmbVal
 	#setValid = this.#setIsValid.bind(this, true);
 
 	validate(): Promise<void> {
+		console.log('valdiate');
 		this.#isValid = this.#control.checkValidity();
 		return this.#isValid ? Promise.resolve() : Promise.reject();
 	}

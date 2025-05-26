@@ -181,6 +181,7 @@ export class UmbValidationController extends UmbControllerBase implements UmbVal
 		}
 
 		this.consumeContext(UMB_VALIDATION_CONTEXT, (parent) => {
+			console.log('----parent context found----',parent);
 			this.inheritFrom(parent, dataPath);
 		}).skipHost();
 		// Notice skipHost ^^, this is because we do not want it to consume it self, as this would be a match for this consumption, instead we will look at the parent and above. [NL]
@@ -197,7 +198,7 @@ export class UmbValidationController extends UmbControllerBase implements UmbVal
 		}
 		this.#parent = parent;
 
-		this.messages.clear();
+		this.messages?.clear();
 		this.#localMessages = undefined;
 
 		this.#baseDataPath = dataPath;
@@ -216,7 +217,7 @@ export class UmbValidationController extends UmbControllerBase implements UmbVal
 			parent?.messages.messagesOfPathAndDescendant(dataPath),
 			(msgs) => {
 				if (!msgs) {
-					this.messages.clear();
+					this.messages?.clear();
 					return;
 				}
 				this.messages.initiateChange();
@@ -255,7 +256,7 @@ export class UmbValidationController extends UmbControllerBase implements UmbVal
 		if (this.#parent) {
 			this.#parent.removeValidator(this);
 		}
-		this.messages.clear();
+		this.messages?.clear();
 		this.#localMessages = undefined;
 		this.setTranslationData(undefined);
 	}
@@ -440,7 +441,7 @@ export class UmbValidationController extends UmbControllerBase implements UmbVal
 	 */
 	reset(): void {
 		this.#validationMode = false;
-		this.messages.clear();
+		this.messages?.clear();
 		this.#validators.forEach((v) => v.reset());
 	}
 

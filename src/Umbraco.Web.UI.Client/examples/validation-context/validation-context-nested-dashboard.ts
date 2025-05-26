@@ -37,7 +37,7 @@ export class UmbExampleValidationContextNestedDashboardElement extends UmbLitEle
 	constructor() {
 		super();
 
-		this.validation.setDataPath('$.form');
+		//this.validation.setDataPath('$.form');
 
 		this.consumeContext(UMB_VALIDATION_CONTEXT, (validationContext) => {
 			console.log('ctx root',validationContext);
@@ -61,12 +61,12 @@ export class UmbExampleValidationContextNestedDashboardElement extends UmbLitEle
 
 	onRouterChange(event : UmbRouterSlotChangeEvent) {
 		console.log('trigger validation');
-		this.validation.validate();
+		//this.validation.validate();
 	}
 
 		async #checkTabValidity(){
-		const isValidationContextValid = await this.validation!.validate().then(()=>true,()=>false);
-	}
+			const isValidationContextValid = await this.validation!.validate().then(()=>true,()=>false);
+		}
 
 	override render() {
 		return html`
@@ -77,7 +77,7 @@ export class UmbExampleValidationContextNestedDashboardElement extends UmbLitEle
 				</nav>
 				<hr/>
 				Total errors: ${this.totalErrorCount}
-				<pre>${JSON.stringify(this.messages)}</pre>
+				<pre>${JSON.stringify(this.messages,null,4)}</pre>
 				<uui-button
 					look="primary"
 					color="default"
@@ -93,7 +93,9 @@ export class UmbExampleValidationContextNestedDashboardElement extends UmbLitEle
 
 	static override styles = [
 		css`
-
+			uui-box {
+				margin:1rem;
+			}
 		`,
 	];
 }
